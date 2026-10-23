@@ -1,4 +1,15 @@
-package main.java.app.result;
+package app.result;
 
-public class MstResult {
+import app.graph.Edge;
+
+import java.util.List;
+
+public record MstResult(
+        List<Edge> edges,
+        long totalWeight,
+        int components
+) {
+    public MstResult {
+        edges = List.copyOf(edges);
+    }
 }
