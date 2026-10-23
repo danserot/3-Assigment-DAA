@@ -1,4 +1,6 @@
-package app.graph;
+package graph;
+
+import app.graph.Edge;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,12 +10,12 @@ public final class Graph {
     private final int vertexCount;
     private final boolean directed;
 
-    private final List<main.java.app.graph.Edge> edges = new ArrayList<>();
-    private final List<main.java.app.graph.Edge> edgeView =
+    private final List<Edge> edges = new ArrayList<>();
+    private final List<Edge> edgeView =
             Collections.unmodifiableList(edges);
 
-    private final List<List<main.java.app.graph.Edge>> adjacency;
-    private final List<List<main.java.app.graph.Edge>> adjacencyViews;
+    private final List<List<Edge>> adjacency;
+    private final List<List<Edge>> adjacencyViews;
 
     public Graph(int vertexCount, boolean directed) {
         if (vertexCount < 0) {
@@ -29,7 +31,7 @@ public final class Graph {
         adjacencyViews = new ArrayList<>(vertexCount);
 
         for (int i = 0; i < vertexCount; i++) {
-            List<main.java.app.graph.Edge> outgoing = new ArrayList<>();
+            List<Edge> outgoing = new ArrayList<>();
             adjacency.add(outgoing);
             adjacencyViews.add(
                     Collections.unmodifiableList(outgoing)
@@ -49,11 +51,11 @@ public final class Graph {
         return directed;
     }
 
-    public List<main.java.app.graph.Edge> edges() {
+    public List<Edge> edges() {
         return edgeView;
     }
 
-    public List<main.java.app.graph.Edge> neighbors(int vertex) {
+    public List<Edge> neighbors(int vertex) {
         checkVertex(vertex);
         return adjacencyViews.get(vertex);
     }
@@ -62,14 +64,14 @@ public final class Graph {
         checkVertex(from);
         checkVertex(to);
 
-        main.java.app.graph.Edge edge = new main.java.app.graph.Edge(from, to, weight);
+        Edge edge = new Edge(from, to, weight);
 
         edges.add(edge);
         adjacency.get(from).add(edge);
 
         if (!directed) {
             adjacency.get(to).add(
-                    new main.java.app.graph.Edge(to, from, weight)
+                    new Edge(to, from, weight)
             );
         }
     }
@@ -77,8 +79,8 @@ public final class Graph {
     public int[] inDegrees() {
         int[] degrees = new int[vertexCount];
 
-        for (List<main.java.app.graph.Edge> outgoing : adjacency) {
-            for (main.java.app.graph.Edge edge : outgoing) {
+        for (List<Edge> outgoing : adjacency) {
+            for (Edge edge : outgoing) {
                 degrees[edge.to()]++;
             }
         }
@@ -89,7 +91,7 @@ public final class Graph {
     public Graph reversed() {
         Graph reversed = new Graph(vertexCount, directed);
 
-        for (main.java.app.graph.Edge edge : edges) {
+        for (Edge edge : edges) {
             reversed.addEdge(
                     edge.to(),
                     edge.from(),
