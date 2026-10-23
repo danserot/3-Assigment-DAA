@@ -14,22 +14,34 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 
-# Папка src: скрипт расположен в src/scripts/.
-ROOT = Path(__file__).resolve().parents[1]
-
-# В твоем проекте файл называется result.csv.
-CSV_PATH = ROOT / "results" / "result.csv"
-
-# Куда сохранять графики и анализ.
+# src/scripts/plot_results.py -> project root.
+ROOT = Path(__file__).resolve().parents[2]
+CSV_PATH = ROOT / "results" / "results.csv"
 PLOT_DIR = ROOT / "results" / "plots"
 ANALYSIS_PATH = ROOT / "results" / "analysis.md"
 
+
 def load_rows() -> list[dict]:
-    with CSV_PATH.open(
-        encoding="utf-8",
-        newline="",
-    ) as file:
-        rows = list(csv.DictReader(file))
+    if not CSV_PATH.is_file():
+        raise ValueError(
+            f"Benchmark CSV not found: {CSV_PATH}. "
+            "Run the full Java benchmark first: "
+            "java -Xmx2g -jar target/graphs-1.0.0.jar benchmark"
+        )
+
+    with CSV_PATH.open(encoding="utf-8-sig", newline="") as file:
+        reader = csv.DictReader(file)
+        required = {
+            "algorithm", "graph", "n", "m", "time_ms",
+            "dsu_ops", "edge_scans", "comparisons",
+            "max_depth", "result",
+        }
+        if not required.issubset(reader.fieldnames or []):
+            raise ValueError(
+                f"Invalid or empty benchmark CSV: {CSV_PATH}. "
+                "Generate it with the full Java benchmark."
+            )
+        rows = list(reader)
 
     if len(rows) != 50:
         raise ValueError(

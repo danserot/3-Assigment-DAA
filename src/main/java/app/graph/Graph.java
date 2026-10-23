@@ -1,6 +1,4 @@
-package graph;
-
-import app.graph.Edge;
+package app.graph;
 
 import java.util.ArrayList;
 import java.util.Collections;

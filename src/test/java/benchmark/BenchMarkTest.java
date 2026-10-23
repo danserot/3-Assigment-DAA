@@ -4,7 +4,7 @@ import app.algorithms.Kahn;
 import app.algorithms.Kruskal;
 import app.benchmark.BenchmarkRunner;
 import app.benchmark.GraphGenerator;
-import graph.Graph;
+import app.graph.Graph;
 import app.metrics.Metrics;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;

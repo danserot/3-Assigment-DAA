@@ -2,7 +2,7 @@ package algorithms;
 
 import app.algorithms.Kosaraju;
 import app.graph.Edge;
-import graph.Graph;
+import app.graph.Graph;
 import app.graph.GraphReader;
 import app.metrics.Metrics;
 import org.junit.jupiter.api.Test;

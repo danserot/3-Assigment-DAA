@@ -129,8 +129,8 @@ algorithmic operations, not every executed instruction.
 ## Plots and measured analysis
 
 ```bash
-python -m pip install -r scripts/requirements.txt
-python scripts/plot_results.py
+python -m pip install -r src/scripts/requirements.txt
+python src/scripts/plot_results.py
 ```
 
 Outputs:
@@ -151,3 +151,22 @@ A reference mismatch must be investigated.
 Do not replace the expected values with actual results
 just to make the check pass.
 
+
+## Result location
+
+The Java benchmark and Python plotting script both use
+`results/results.csv` in the project root.
+The old empty `src/results/result.csv` is not an input.
+Run all Java commands from the project root.
+
+## Windows without Maven on PATH
+
+The included `run.ps1` finds Maven on PATH or in IntelliJ IDEA.
+It locates JDK 17+ using JAVA_HOME or installed JDK folders.
+
+```powershell
+.\run.ps1 test
+.\run.ps1 smoke
+.\run.ps1 benchmark
+python src/scripts/plot_results.py
+```

@@ -1,6 +1,6 @@
 package app.benchmark;
 
-import graph.Graph;
+import app.graph.Graph;
 
 import java.util.Random;
 

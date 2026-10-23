@@ -1,7 +1,7 @@
 package app.algorithms;
 
 import app.graph.Edge;
-import graph.Graph;
+import app.graph.Graph;
 import app.metrics.Metrics;
 import app.result.MstResult;
 

@@ -1,4 +1,4 @@
-package main.java.app.graph;
+package app.graph;
 
 public class Arc {
 }

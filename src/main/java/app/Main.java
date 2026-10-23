@@ -6,7 +6,7 @@ import app.algorithms.Kosaraju;
 import app.algorithms.Kruskal;
 import app.algorithms.Prim;
 import app.benchmark.BenchmarkRunner;
-import graph.Graph;
+import app.graph.Graph;
 import app.graph.GraphReader;
 import app.metrics.Metrics;
 import app.result.MstResult;

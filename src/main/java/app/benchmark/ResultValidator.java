@@ -2,7 +2,7 @@ package app.benchmark;
 
 import app.algorithms.DisjointSetUnion;
 import app.graph.Edge;
-import graph.Graph;
+import app.graph.Graph;
 import app.metrics.Metrics;
 import app.result.MstResult;
 import app.result.TopologicalResult;

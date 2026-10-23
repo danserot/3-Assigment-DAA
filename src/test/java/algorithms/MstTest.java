@@ -4,7 +4,7 @@ import app.algorithms.DisjointSetUnion;
 import app.algorithms.Kruskal;
 import app.algorithms.Prim;
 import app.graph.Edge;
-import graph.Graph;
+import app.graph.Graph;
 import app.graph.GraphReader;
 import app.metrics.Metrics;
 import org.junit.jupiter.api.Test;

@@ -5,7 +5,7 @@ import app.algorithms.Kahn;
 import app.algorithms.Kosaraju;
 import app.algorithms.Kruskal;
 import app.algorithms.Prim;
-import graph.Graph;
+import app.graph.Graph;
 import app.metrics.Metrics;
 import app.result.MstResult;
 import app.result.SccResult;

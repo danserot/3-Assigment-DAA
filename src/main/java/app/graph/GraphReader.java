@@ -1,6 +1,6 @@
 package app.graph;
 
-import graph.Graph;
+import app.graph.Graph;
 
 import java.io.BufferedReader;
 import java.io.IOException;
