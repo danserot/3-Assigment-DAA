@@ -1,4 +1,4 @@
-package app.reference;
+package reference;
 
 public class BellmanFord {
 }
