@@ -1,7 +1,7 @@
 package graph;
 
 import app.graph.Edge;
-import app.graph.Graph;
+import graph.Graph;
 import app.graph.GraphReader;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;

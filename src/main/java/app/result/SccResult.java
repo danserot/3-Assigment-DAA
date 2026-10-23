@@ -1,4 +1,7 @@
-package main.java.app.result;
+package app.result;
 
-public class SccResult {
+public record SccResult(
+        int[] componentOf,
+        int componentCount
+) {
 }
