@@ -1,4 +1,4 @@
-package main.java.app.graph;
+package app.graph;
 
-public class Edge {
+public record Edge(int from, int to, int weight) {
 }

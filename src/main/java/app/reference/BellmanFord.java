@@ -1,4 +1,4 @@
-package test.java.reference;
+package app.reference;
 
 public class BellmanFord {
 }
