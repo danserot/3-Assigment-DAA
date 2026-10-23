@@ -1,4 +1,7 @@
-package main.java.app.result;
+package app.result;
 
-public class TopologicalResult {
+public record TopologicalResult(
+        int[] order,
+        boolean hasCycle
+) {
 }
